@@ -1,2 +1,2 @@
 # React-Styles-Cheat-Sheet
-A list with filter of react inline styles
+That's a list of react properties with a filter, to easily search for things.
