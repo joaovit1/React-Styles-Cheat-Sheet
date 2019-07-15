@@ -1,0 +1,43 @@
+.tictactoe {
+    text-align: center;
+    vertical-align:middle !important;
+    height:450px;
+}
+
+.tictactoe.form .row{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.players{
+    display:flex;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.form.title{
+    font: 32px bold;
+    height:20%;
+}
+
+.board.title{
+    font: 20px bold;
+    height:10%;    
+}
+
+.cell{
+    font: 5.5em bold;
+    border: 1px solid black;
+}
+
+.form.container{
+    width: 100%;
+}
+
+.errormessage{
+    color: red;
+    font-size: 16px;
+    margin-top:10px;
+}
+

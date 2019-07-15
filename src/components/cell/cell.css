@@ -1,0 +1,4 @@
+.cell{
+    text-shadow: 4px 3px 0px #fff, 9px 8px 0px rgba(0,0,0,0.15);
+    user-select: none;    
+}

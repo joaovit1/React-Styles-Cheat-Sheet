@@ -1,11 +1,10 @@
-body {
-  background: #e1e3de;
-}
-
-#mount-point {
-  padding: 60px;
-  max-width: 800px;
+#mount-point {  
   margin: auto;
+  background: #e1e3de;
+  border-radius: 20px;  
+  width: 100%;
+  height: 100%;
+  padding: 15px;
 }
 #mount-point input {
   line-height: 2;
@@ -15,6 +14,7 @@ body {
 }
 #mount-point ul {
   margin: 0;
+  padding: 0;
 }
 #mount-point ul li {
   list-style: none;
@@ -25,6 +25,3 @@ body {
   background: white;
 }
 
-.mb-3.input-group{
-    padding-left:40px;
-}
