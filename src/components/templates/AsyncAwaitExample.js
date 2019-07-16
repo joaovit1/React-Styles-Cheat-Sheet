@@ -3,9 +3,10 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNightBlue } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Jumbotron,Container } from 'react-bootstrap'
 
-function AsyncAwaitExample () {
+function AsyncAwaitExample (props) {
+    const {Style} = props;
         return (
-            <fieldset>
+            <fieldset className={Style}>
                 <legend>Async/Await Functions Example</legend>
                 <Jumbotron>
                     <Container>

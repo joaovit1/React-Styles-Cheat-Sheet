@@ -3,9 +3,10 @@ import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNightBlue } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Jumbotron,Container } from 'react-bootstrap'
 
-function ClassTemplate () {
+function ClassTemplate (props) {
+    const {Style} = props;
         return (
-            <fieldset>
+            <fieldset className={Style}>
                 <legend>Class Component Template</legend>
                 <Jumbotron>
                     <Container>
@@ -13,7 +14,6 @@ function ClassTemplate () {
                             <SyntaxHighlighter language="javascript" style={tomorrowNightBlue}>
                                 {
 `import React,{Component} from 'react'
-import ReactDOM from 'react-dom'
 class StandardClass extends Component {
     constructor(props) {
       super(props)

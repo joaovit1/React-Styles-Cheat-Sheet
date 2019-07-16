@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Jumbotron,Container } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 import Css from './components/css/Css'
 import TicTacToe from './components/tictactoe/TicTacToe'
 import ClassTemplate from './components/templates/ClassTemplate'
@@ -10,8 +10,16 @@ import ActionTemplate from './components/templates/ActionTemplate'
 import MappingStateTemplate from './components/templates/MappingStateTemplate'
 import ProviderBrowserTemplate from './components/templates/ProviderBrowserTemplate'
 import AsyncAwaitExample from './components/templates/AsyncAwaitExample'
+import ProviderConsumer from './components/templates/ProviderConsumerExample'
+import HOCExample from './components/templates/HOCExample'
 import './App.css';
 
+export const Context = React.createContext(null);
+
+const withTitle = Element => props =>(
+<Element {...props} title="Higher Order Component Example" />)
+
+const TitledHOCExample = withTitle(HOCExample);
 class App extends Component {
     constructor(props) {
         super(props);
@@ -27,7 +35,7 @@ class App extends Component {
   }
   
   callChange = async () =>{
-      await this.changeBackground('darkviolet',1000);
+      await this.changeBackground('darkviolet',500);
   }
   
   render(){
@@ -38,50 +46,44 @@ class App extends Component {
             React Cheat Sheet
             </h1>
             <Container>
-                   <div className='col small left'>                                          
-                        <fieldset>
-                            <legend>CSS Cheat Sheet</legend>
-                            <Jumbotron style={{height:'400px'}}>
-                                <Container>
-                                    <Css/>
-                                </Container>
-                            </Jumbotron>   
-                        </fieldset>      
-                    </div>                    
-                    <div className='col large right'>
-                        <fieldset>
-                            <legend>TicTacToe</legend>
-                            <Jumbotron>
-                                <Container>
-                                    <TicTacToe/>
-                                </Container>
-                            </Jumbotron>
-                        </fieldset>
-                    </div>
-                    <div className='col small text left'>                                  
-                        <ClassTemplate/>
-                    </div>
-                    <div className='col large text right'>                                  
-                        <BrowserTemplate/>
-                    </div>
-                    <div className='col small text left'>                                 
-                        <StoreTemplate/>
-                    </div>
-                    <div className='col large text right'>                                  
-                        <ProviderBrowserTemplate/>
-                    </div>                    
-                    <div className='col small text left'>                                 
-                        <ActionTemplate/>
-                    </div>
-                    <div className='col small text left'>                                  
-                        <ReducerTemplate/>
-                    </div>
-                    <div className='col large text right'>                                  
-                        <MappingStateTemplate/>
-                    </div>
-                    <div className='col small text left'>                                                            
-                        <AsyncAwaitExample/>                              
-                    </div>
+                <Css 
+                Style={'col small left'}
+                />                          
+                <TicTacToe
+                    Style={'col large right'}
+                />                                
+                <ClassTemplate
+                    Style={'col small text left'}
+                />                           
+                <BrowserTemplate
+                    Style={'col large text right'}
+                />                             
+                <StoreTemplate
+                    Style={'col small text left'}
+                />                             
+                <ProviderBrowserTemplate
+                    Style={'col large text right'}
+                />                        
+                <ActionTemplate
+                    Style={'col small text left'}
+                />                               
+                <ReducerTemplate
+                    Style={'col small text left'}
+                />
+                <MappingStateTemplate
+                    Style={'col large text right'}
+                />
+                <AsyncAwaitExample
+                    Style={'col small text left'}
+                />
+                <TitledHOCExample
+                    Style={'col small text left'}
+                />
+                <Context.Provider value={'Provider-Consumer Example'}>
+                    <ProviderConsumer 
+                        Style={'col large text right'}
+                    />                    
+                </Context.Provider>
             </Container>
     </div>      
   );

@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { inputChange, gameChange, errorChange, playerChange, reset } from '../../actions';
+import { Jumbotron,Container } from 'react-bootstrap'
 import TictactoeBoard from './TictactoeBoard'
 import TictactoeForm from './TictactoeForm'
 import './tictactoe.css'
@@ -27,31 +28,36 @@ class TicTacToe extends Component {
     }
     
     render(){        
-        const {player1,player2,gameStatus,error,playerChange,playerSymbol,values,gameChange,reset} = this.props;        
+        const { player1,player2,gameStatus,error,playerChange,playerSymbol,values,gameChange,reset,Style } = this.props;        
         return (
-            <div>
-            {
-                gameStatus==='Waiting'?
-                    <TictactoeForm
-                        handleClick={this.handleClick}
-                        handleKeyUp={this.handleKeyUp}
-                        player1={player1}
-                        player2={player2}
-                        gameStatus={gameStatus}
-                        error={error}
-                    />                    
-                :
-                    <TictactoeBoard 
-                        players={[player1,player2]} 
-                        reset={reset}
-                        playerChange={playerChange}
-                        playerSymbol={playerSymbol}
-                        values={values}
-                        gameChange={gameChange}            
-                        gameStatus={gameStatus}            
-                    />
-            }
-            </div>      
+            <fieldset className={Style}>
+                <legend>TicTacToe</legend>
+                <Jumbotron>
+                    <Container>
+                        {
+                            gameStatus==='Waiting'?
+                            <TictactoeForm
+                                handleClick={this.handleClick}
+                                handleKeyUp={this.handleKeyUp}
+                                player1={player1}
+                                player2={player2}
+                                gameStatus={gameStatus}
+                                error={error}
+                            />                    
+                        :
+                            <TictactoeBoard 
+                                players={[player1,player2]} 
+                                reset={reset}
+                                playerChange={playerChange}
+                                playerSymbol={playerSymbol}
+                                values={values}
+                                gameChange={gameChange}            
+                                gameStatus={gameStatus}            
+                            />
+                        }
+                    </Container>
+                </Jumbotron>
+            </fieldset>    
         );}
 }
 

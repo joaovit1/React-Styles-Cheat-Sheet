@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import List from '../list/List';
-import { InputGroup, FormControl } from 'react-bootstrap';
+import { InputGroup,FormControl,Jumbotron,Container } from 'react-bootstrap';
 import './css.css'
 class Css extends Component {
     constructor(props){
@@ -428,20 +428,28 @@ class Css extends Component {
     }
     
     render(){
-        return (
-            <div id="mount-point">
-            <div className="filter-list">                
-                <InputGroup className="mb-3">
-                    <FormControl
-                      placeholder="Search"
-                      aria-label="Search"
-                      aria-describedby="basic-addon1"
-                      onChange={this.filterList}
-                    />
-                  </InputGroup>
-                <List items={this.state.items}/>
-            </div>
-            </div>
+        const {Style} = this.props;
+        return (             
+                <fieldset className={Style}>
+                    <legend>CSS Cheat Sheet</legend>
+                    <Jumbotron style={{height:'400px'}}>
+                        <Container>
+                            <div id="mount-point">
+                                <div className="filter-list">                
+                                    <InputGroup className="mb-3">
+                                        <FormControl
+                                        placeholder="Search"
+                                        aria-label="Search"
+                                        aria-describedby="basic-addon1"
+                                        onChange={this.filterList}
+                                        />
+                                    </InputGroup>
+                                    <List items={this.state.items}/>
+                                </div>
+                            </div>
+                        </Container>
+                    </Jumbotron>   
+                </fieldset>
         );}
 }
 

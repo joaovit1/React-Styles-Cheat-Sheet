@@ -2,9 +2,10 @@ import React from 'react'
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNightBlue } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { Jumbotron,Container } from 'react-bootstrap';
-function ActionTemplate () {
+function ActionTemplate (props) {
+    const {Style} = props;
         return (
-            <fieldset>
+            <fieldset className={Style}>
                 <legend>Action Template</legend>
                 <Jumbotron>
                     <Container>
