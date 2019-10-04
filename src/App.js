@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Container } from 'react-bootstrap'
+import { Container, Button } from 'react-bootstrap'
 import Css from './components/css/Css'
 import TicTacToe from './components/tictactoe/TicTacToe'
 import ClassTemplate from './components/templates/ClassTemplate'
@@ -24,7 +24,9 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state={
-            backgroundColor:'white'
+            backgroundColor:'white',
+            react:true,
+            reactNative:false,  //Needs to be changed for a better way
         }
     }
     
@@ -45,49 +47,80 @@ class App extends Component {
             <h1>
             React Cheat Sheet
             </h1>
-            <Container>
-                <Css 
-                Style={'col small left'}
-                />                          
-                <TicTacToe
-                    Style={'col large right'}
-                />                                
-                <ClassTemplate
-                    Style={'col small text left'}
-                />                           
-                <BrowserTemplate
-                    Style={'col large text right'}
-                />                             
-                <StoreTemplate
-                    Style={'col small text left'}
-                />                             
-                <ProviderBrowserTemplate
-                    Style={'col large text right'}
-                />                        
-                <ActionTemplate
-                    Style={'col small text left'}
-                />                               
-                <ReducerTemplate
-                    Style={'col small text left'}
-                />
-                <MappingStateTemplate
-                    Style={'col large text right'}
-                />
-                <AsyncAwaitExample
-                    Style={'col small text left'}
-                />
-                <TitledHOCExample
-                    Style={'col small text left'}
-                />
-                <Context.Provider value={'Provider-Consumer Example'}>
-                    <ProviderConsumer 
-                        Style={'col large text right'}
-                    />                    
-                </Context.Provider>
-            </Container>
+            <Button variant="primary" 
+                style={{marginRight:'15px'}} 
+                className={this.state.react && 'active'} 
+                onClick={()=> 
+                    this.setState({
+                        react:true,
+                        reactNative:false
+                })}>
+                React
+            </Button>
+            <Button variant="primary" 
+                className={this.state.reactNative && 'active'} 
+                onClick={()=> 
+                    this.setState({
+                        react:false,
+                        reactNative:true
+                })}>
+                React native
+            </Button>
+            {this.state.react?
+                <ReactContainer/>
+            :
+                <Container style={{backgroundColor:'black'}}>
+                    React Native templates
+                </Container>
+            }
     </div>      
   );
   }
 }
 
 export default App;
+
+const ReactContainer = () => {
+    return(
+    <div>
+        <Css 
+        Style={'col small left'}
+        />                          
+        <TicTacToe
+            Style={'col large right'}
+        />                                
+        <ClassTemplate
+            Style={'col small text left'}
+        />                           
+        <BrowserTemplate
+            Style={'col large text right'}
+        />                             
+        <StoreTemplate
+            Style={'col small text left'}
+        />                             
+        <ProviderBrowserTemplate
+            Style={'col large text right'}
+        />                        
+        <ActionTemplate
+            Style={'col small text left'}
+        />                               
+        <ReducerTemplate
+            Style={'col small text left'}
+        />
+        <MappingStateTemplate
+            Style={'col large text right'}
+        />
+        <AsyncAwaitExample
+            Style={'col small text left'}
+        />
+        <TitledHOCExample
+            Style={'col small text left'}
+        />
+        <Context.Provider value={'Provider-Consumer Example'}>
+            <ProviderConsumer 
+                Style={'col large text right'}
+            />                    
+        </Context.Provider>
+    </div>
+    )
+}

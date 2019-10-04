@@ -13,30 +13,28 @@ function MappingStateTemplate (props) {
                             <SyntaxHighlighter language="javascript" style={tomorrowNightBlue}>
                                 {
 `import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import { messageClick } from '../actions'
 // A functional React component
-function App ({ message, onMessageClick }) {
+class App extends React.Component {
   return (
-    <div onClick={() => onMessageClick('hello')}>
+    <div onClick={() => messageClick('hello')}>
       {message}
     </div>
   )
 }
 // Maps 'state' to 'props':
 // These will be added as props to the component.
-function mapState (state) {
-  return { message: state.message }
-}
+const mapStateToProps = (store) => ({
+	messageStatus: store.message.messageStatus
+})
 
 // Maps 'dispatch' to 'props':
-function mapDispatch (dispatch) {
-  return {
-    onMessageClick (message) {
-      dispatch({ type: 'click', message })
-    }
-  }
-}
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ messageClick }, dispatch);
+
 // Connect them:
-export default connect(mapState, mapDispatch)(App)`
+export default connect(mapStateToProps, mapDispatchToProps)(App);`
                                 }
                             </SyntaxHighlighter>
                         </pre>
