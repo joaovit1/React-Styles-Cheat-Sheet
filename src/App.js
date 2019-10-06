@@ -12,6 +12,7 @@ import ProviderBrowserTemplate from './components/templates/ProviderBrowserTempl
 import AsyncAwaitExample from './components/templates/AsyncAwaitExample'
 import ProviderConsumer from './components/templates/ProviderConsumerExample'
 import HOCExample from './components/templates/HOCExample'
+import ModalTemplate from './components/templates/ModalTemplate'
 import './App.css';
 
 export const Context = React.createContext(null);
@@ -70,7 +71,9 @@ class App extends Component {
                 <ReactContainer/>
             :
                 <Container style={{backgroundColor:'black'}}>
-                    React Native templates
+                    <ModalTemplate
+                        Style={'col large left'}
+                    />
                 </Container>
             }
     </div>      
