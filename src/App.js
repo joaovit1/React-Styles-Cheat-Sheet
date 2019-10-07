@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import { Container, Button } from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import Css from './components/css/Css'
 import TicTacToe from './components/tictactoe/TicTacToe'
 import ClassTemplate from './components/templates/ClassTemplate'
@@ -13,6 +13,8 @@ import AsyncAwaitExample from './components/templates/AsyncAwaitExample'
 import ProviderConsumer from './components/templates/ProviderConsumerExample'
 import HOCExample from './components/templates/HOCExample'
 import ModalTemplate from './components/templates/ModalTemplate'
+import RNRFTemplate from './components/templates/RNRouterFluxTemplate'
+
 import './App.css';
 
 export const Context = React.createContext(null);
@@ -44,7 +46,7 @@ class App extends Component {
   render(){
       this.callChange();
   return (
-    <div className="App" style={{backgroundColor:this.state.backgroundColor}}>        
+    <div className="App" style={{backgroundColor:this.state.backgroundColor,height:'100vh'}}>        
             <h1>
             React Cheat Sheet
             </h1>
@@ -70,11 +72,14 @@ class App extends Component {
             {this.state.react?
                 <ReactContainer/>
             :
-                <Container style={{backgroundColor:'black'}}>
+                <div>
                     <ModalTemplate
-                        Style={'col large left'}
+                        Style={'col small left'}
                     />
-                </Container>
+                    <RNRFTemplate
+                        Style={'col large left'}    
+                    />
+                </div>
             }
     </div>      
   );
